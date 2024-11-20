@@ -1,5 +1,7 @@
+import re
+
 class Transacao:
-    def __init__(self, tipo:int, categoria:str, valor:float, data:tuple[int], descricao:str=None):
+    def __init__(self, tipo:int, categoria:str, valor:float, data:str, descricao:str=None):
         self.tipo = tipo
         self._categoria = categoria
         self._valor = valor
@@ -35,10 +37,13 @@ class Transacao:
         self._descricao = descricao
 
     @property
-    def data(self) -> tuple[int]:
+    def data(self) -> str:
         return self._data
     @data.setter
-    def data(self, data:tuple[int]):
+    def data(self, data:str):
+        regex = r'^\d\d\d\d-\d\d?-\d\d?$'
+        if not bool(re.match(regex, data)):
+            raise ValueError('Formato inválido, esperado "yyyy-mm-dd"')
         self._data = data
     
     def __str__(self):
@@ -47,7 +52,7 @@ class Transacao:
         s = f'''
             \rCategoria: {self._categoria}.
             \rValor: {(self._valor*self.tipo):.2f}
-            \rData: {self._data[0]:0>2}/{self._data[1]}.
+            \rData: {self._data}.
             \rDescrição: {self._descricao}.
         '''
 
@@ -65,10 +70,10 @@ class Transacao:
 
 if __name__ == '__main__':
     teste:list[Transacao] = []
-    teste.append(Transacao(-12, 'conta', 32.00, (10,24)))
-    teste.append(Transacao(1, 'presente', 62.00, (9,24)))
-    teste.append(Transacao(-1, 'passagem', 23.00, (8,24)))
-    teste.append(Transacao(1, 'lanche', 72.00, (11,24)))
+    teste.append(Transacao(-12, 'conta', 32.00, '2024-5-6'))
+    teste.append(Transacao(1, 'presente', 62.00, '2024-5-6'))
+    teste.append(Transacao(-1, 'passagem', 23.00, '2024-5-6'))
+    teste.append(Transacao(1, 'lanche', 72.00, '2024-5-6'))
     # print(*teste)
 
     lista = [t.to_dict() for t in teste]

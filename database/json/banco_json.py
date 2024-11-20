@@ -34,4 +34,5 @@ def ler_de_json(caminho_arquivo):
         return dados
     
     except Exception as e:
+        print(e)
         return []
