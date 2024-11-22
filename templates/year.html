@@ -1,0 +1,8 @@
+<header>
+    {{ year }}
+</header>
+<main>
+    {% for i in range(12) %}
+        <div class="cell-month" id="month-{{ i + 1 }}"></div>
+    {% endfor %}
+</main>

@@ -12,13 +12,7 @@ def get_db() -> list[Transacao]:
        db = []
 
        for dado in data:
-            db.append(Transacao(
-                dado['tipo'],
-                dado['categoria'],
-                dado['valor'],
-                dado['data'],
-                dado['descricao']
-            ))
+            db.append(Transacao(**dado))
        return db 
     except Exception as e:
         print(e)
