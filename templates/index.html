@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
 </head>
 <body>
-    <div class="container" id="calendar"></div>
-    <div class="container" id="charts"></div>
+    <header>
+        <h1>Gestão Financeira</h1>
+        <button id="new">Nova Transação</button>
+        <button id="list">Listar Transações</button>
+        <div>
+            <button>-</button>
+            <p> 2024 </p>
+            <button>+</button>
+        </div>
+    </header>
+    <main>
+        Gráficos
+    </main>
 </body>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </html>

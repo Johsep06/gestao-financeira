@@ -1,28 +1,73 @@
+import sqlite3
 from pathlib import Path
-from database.json.banco_json import salvar_em_json, ler_de_json
-from src.transacao import Transacao
+
+from database.scripts import basic, read, update, create
 
 ROOT_DIR = Path(__file__).parent
-DB_NAME = 'db.json'
+DB_NAME = 'db.sqlite3'
 DB_FILE = ROOT_DIR / DB_NAME
 
-def get_db() -> list[Transacao]:
-    try:
-       data = ler_de_json(DB_FILE)
-       db = []
+def init_db():
+        try: 
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                cursor.execute(create.TABLE)
+                connection.commit()
+                cursor.execute(create.TRASACOES_POR_ANO)
+                connection.commit()
+                cursor.execute(create.TRASACOES_POR_MES)
+                connection.commit()
+        except Exception as e:
+                print('Erro ao Criar o db', str(e))
+        finally: 
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+        
 
-       for dado in data:
-            db.append(Transacao(**dado))
-       return db 
-    except Exception as e:
-        print(e)
-        return []
+def add(trasacao:dict):
+        try: 
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                cursor.execute(basic.INSERT, trasacao)
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally: 
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
 
-def set_db(db:list):
-    dados = []
-    for l in db:
-        dados.append(l.to_dict())
-    try:
-        salvar_em_json(dados, DB_FILE)
-    except Exception as e:
-        print('Erro:' + str(e))
+def delete(*ids):
+        try: 
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                for id in ids:
+                        param = {'id':id}
+                        cursor.execute(basic.DELETE, param)
+                        connection.commit()
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally: 
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+
+
+def get_by_id(id:int):
+        transacao = None
+        
+        try: 
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                param = {'id':id}
+                cursor.execute(read.BY_ID, param)
+                transacao = cursor.fetchall()
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return transacao
+
+

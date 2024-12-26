@@ -1,0 +1,29 @@
+TIPO = '''
+UPDATE TRANSACAO
+SET TIPO = :tipo
+WHERE ID = :id
+'''
+
+CATEGORIA = '''
+UPDATE TRANSACAO
+SET CATEGORIA = :categoria
+WHERE ID = :id
+'''
+
+VALOR = '''
+UPDATE TRANSACAO
+SET VALOR = :valor
+WHERE ID = :id
+'''
+
+DATA = '''
+UPDATE TRANSACAO
+SET DATA = :data
+WHERE ID = :id
+'''
+
+DESCRICAO = '''
+UPDATE TRANSACAO
+SET DESCRICAO = :descricao
+WHERE ID = :id
+'''

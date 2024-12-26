@@ -2,3 +2,5 @@
 database/sqlite3
 __pycache__
 db.*
+teste.py
+database/json

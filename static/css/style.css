@@ -1,7 +1,7 @@
-:root{
-    --cor-pri: #1e1e1e;
-    --cor-sec: #f1f1f1;
-    --cor-ter: #615c5c;
+:root {
+    --cor-pri: #2c4fa0;
+    --cor-sec: #c0c9e7;
+    --cor-ter: #303030;
 }
 
 * {
@@ -12,50 +12,55 @@
 
 body {
     background-color: var(--cor-pri);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 100vh;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--cor-ter);
 }
 
-.container {
-    width: 550px;
-    height: 550px;
-    background-color: var(--cor-sec);
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid var(--cor-sec);
-}
-
-header, main {
-    width: 100%;
-}
+/*
+* ========== Formatação Cabeçalho ==========
+*/
 
 header {
-    background-color: var(--cor-pri);
-    height: 15%;
-    border-radius: 50px 50px 0px 0px;
-    color: var(--cor-sec);
-    display: grid;
-    place-items: center;
+    background-color: var(--cor-sec);
+    text-align: center;
+    padding: 20px;
 }
+
+button {
+    background-color: inherit;
+    border: none;
+    color: var(--cor-ter);
+}
+
+button:hover {
+    background-color: var(--cor-ter);
+    color: var(--cor-sec);
+    border-radius: 5px;
+
+}
+
+h1, header button {
+    padding: 10px 5px;
+}
+
+div button {
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+div p {
+    display: inline;
+    padding: 10px;
+}
+
+/*
+* ========== Formatação Centro ==========
+*/
 
 main {
-    height: 85%;
     background-color: var(--cor-sec);
-    border-radius: 0px 0px 50px 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    place-items: center;
-}
-
-.cell-month {
-    background-color: var(--cor-sec);
-    border: 2px solid var(--cor-ter);
-    width: 60%;
-    height: 60%;
-    border-radius: 15px;
+    margin: 15px auto;
+    width: 900px;
 }

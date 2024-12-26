@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
 import datetime
 
 home_route = Blueprint('home', __name__)
@@ -8,7 +8,6 @@ def home():
     return render_template('index.html')
 
 @home_route.route('/year')
-def year():
+def get_year():
     today = datetime.date.today()
-
-    return render_template('year.html', year=today.year)
+    return jsonify({'year':today.year})
