@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h1>Gestão Financeira</h1>
-        <button id="new">Nova Transação</button>
-        <button id="list">Listar Transações</button>
-        <div>
-            <button>-</button>
-            <p> 2024 </p>
-            <button>+</button>
-        </div>
-    </header>
-    <main>
-        Gráficos
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>Gestão Financeira</title>
+    </head>
+    <body>
+        <header>
+            <h1>Gestão Financeira</h1>
+        </header>
+        <main>
+            <div id="controls"> <!-- Container dos Controles -->
+            </div>
+            <div id="charts">Gráficos</div>
+        </main>
+    </body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
 </html>

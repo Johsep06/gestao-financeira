@@ -11,3 +11,7 @@ def home():
 def get_year():
     today = datetime.date.today()
     return jsonify({'year':today.year})
+
+@home_route.route('/controls')
+def render_controls():
+    return render_template('controls.html')
