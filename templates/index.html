@@ -9,11 +9,35 @@
 </head>
 
 <body>
-    <h1>Gestão Financeira Pessoal</h1>
-    <section>
-        <button> Nova Movimentação </button>
-        <button> Excluir Movimentação </button>
-        <button> Editar Movimentação </button>
+    <header>
+        <h1>Gestão Financeira Pessoal</h1>
+        <section>
+            <button> Nova Movimentação </button>
+            <button> Excluir Movimentação </button>
+            <button> Editar Movimentação </button>
+            <label class="switch-label">
+                <input type="checkbox" class="checkbox" id="dark-mode">
+                <span class="slider"></span>
+            </label>
+        </section>
+    </header>
+    <section class="barra-horizontal" id="barra-status">
+        <article class="card">
+            <h4>Saldo</h4>
+            <h2>R$ 2.000,00</h2>
+        </article>
+        <article class="card">
+            <h4>Receitas</h4>
+            <h2>R$ 2.000,00</h2>
+        </article>
+        <article class="card">
+            <h4>Despesas</h4>
+            <h2>R$ 2.000,00</h2>
+        </article>
+        <article class="card">
+            <h4>Fatura</h4>
+            <h2>R$ 2.000,00</h2>
+        </article>
     </section>
 </body>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>

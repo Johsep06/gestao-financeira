@@ -1,3 +1,12 @@
+const html = document.querySelector('html');
+const checkboxDarkMode = document.querySelector('#dark-mode');
+
+checkboxDarkMode.checked = false;
+
+checkboxDarkMode.addEventListener('change', () => {
+    html.classList.toggle('dark-mode')
+})
+
 function render_container(route, containerID) {
     fetch(route)
         .then(response => {

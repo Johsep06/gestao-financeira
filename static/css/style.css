@@ -1,8 +1,17 @@
 :root {
-    --cor-back: #EFEFEF;
-    --cor-pri: #6D148A;
-    --cor-sec: #c0c9e7;
-    --cor-ter: #303030;
+    --body-bg: #EFEFEF;
+    --body-color: #6D148A;
+    --article-bg: #ffffff;
+    --article-color-h2: #303030;
+    --article-color-h4: #5f5f5f;
+}
+
+.dark-mode:root {
+    --body-bg: #101010;
+    --body-color: #6D148A;
+    --article-bg: #000000;
+    --article-color-h2: #CFCFCF;
+    --article-color-h4: #909090;
 }
 
 * {
@@ -12,9 +21,84 @@
 }
 
 body {
-    background-color: var(--cor-back);
-    font-size: 1em;
-    font-family: 'Times New Roman', Times, serif;
-    color: var(--cor-pri);
+    background-color: var(--body-bg);
+    font-size: 1.1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--body-color);
 }
 
+/* ===========================================================
+* Estilo dos controles
+============================================================== */
+
+header {
+    height: 100px;
+    width: 95vw;
+    margin: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+
+.barra-horizontal {
+    margin: auto;
+    height: 100px;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    margin-right: 15px;
+    background-color: var(--body-color);
+    color: var(--article-bg);
+    border: 1px solid var(--body-color);
+    border-radius: 15px;
+    font-size: 0.9em;
+    padding: 5px;
+    transition: 0.2s;
+    
+    &:hover{
+        background-color: var(--article-bg);
+        color: var(--body-color);
+        transition: 0.2s;
+        transform: translateY(-5px);
+    }
+    
+    &:active {
+        transform: translateY(5px);
+    }
+}
+
+/* ===========================================================
+* Estilos da Barra de Status Principal
+============================================================== */
+
+.barra-status, article {
+    height: 100px;
+    width: 300px;
+    background-color: var(--article-bg);
+    border-radius: 20px;
+}
+
+article h2 {
+    color: var(--article-color-h2);
+}
+
+article h4 {
+    color: var(--article-color-h4);
+}
+
+article h2, article h4 {
+    width: 90%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
