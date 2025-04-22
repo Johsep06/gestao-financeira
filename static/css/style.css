@@ -1,5 +1,6 @@
 :root {
-    --cor-pri: #2c4fa0;
+    --cor-back: #EFEFEF;
+    --cor-pri: #6D148A;
     --cor-sec: #c0c9e7;
     --cor-ter: #303030;
 }
@@ -11,119 +12,9 @@
 }
 
 body {
-    background-color: var(--cor-pri);
+    background-color: var(--cor-back);
     font-size: 1em;
     font-family: 'Times New Roman', Times, serif;
-    color: var(--cor-ter);
+    color: var(--cor-pri);
 }
 
-/*
-* Formatação Cabeçalho *************************
-*/
-
-header {
-    background-color: var(--cor-sec);
-    text-align: center;
-    padding: 20px;
-}
-
-/*
-* Formatação Centro *************************
-*/
-
-main {
-    margin: 15px auto;
-    width: 920px;
-    text-align: center;
-}
-
-#controls, #charts {
-    background-color: var(--cor-sec);
-}
-
-/*
-* Formatação Menu *************************
-*/
-
-#controls {
-    width: 240px;
-    float: right;
-}
-
-#controls > p {
-    background-color: var(--cor-ter);
-    color: var(--cor-sec);
-    height: 30px;
-    display: block;
-    padding-top: 5px;
-    /* text-align: center; */
-}
-
-#controls .container {
-    margin-bottom: 10px;
-}
-
-.selector {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-.selector input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.selector span {
-    padding: 0 5px;
-    /* padding: 10px 20px;
-    border: 1px solid #ccc; */
-    border-radius: 5px; 
-    text-align: center;
-    display: inline-block;
-    /* background-color: #f9f9f9; */
-}
-
-.selector input[type="radio"]:checked + span {
-    background-color: var(--cor-ter);
-    color: white;
-}
-
-button {
-    background-color: inherit;
-    border: none;
-    color: var(--cor-ter);
-    padding: 0;
-    height: 30px;
-}
-
-button:hover {
-    background-color: var(--cor-ter);
-    color: var(--cor-sec);
-    border-radius: 5px;
-
-}
-
-#sub, #add {
-    width: 30px;
-    
-}
-
-#new, #list {
-    padding: 5px;
-}
-
-#sub + p {
-    display: inline;
-    padding: 10px;
-}
-
-/*
-* Formatação Gráficos *************************
-*/
-
-#charts {
-    width: 660px;
-    float: left;
-}
