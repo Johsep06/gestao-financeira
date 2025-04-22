@@ -5,20 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/switch-dm.css') }}">
     <title>Gestão Financeira</title>
 </head>
 
 <body>
     <header>
-        <h1>Gestão Financeira Pessoal</h1>
+        <div class="tittle-container">
+            <h1>Gestão Financeira Pessoal</h1>
+            <div class="switch-dm">
+                <label class="switch-label">
+                    <input type="checkbox" class="checkbox" id="dark-mode">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
         <section>
             <button> Nova Movimentação </button>
             <button> Excluir Movimentação </button>
             <button> Editar Movimentação </button>
-            <label class="switch-label">
-                <input type="checkbox" class="checkbox" id="dark-mode">
-                <span class="slider"></span>
-            </label>
         </section>
     </header>
     <section class="barra-horizontal" id="barra-status">

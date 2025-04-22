@@ -1,14 +1,13 @@
 :root {
     --body-bg: #EFEFEF;
     --body-color: #6D148A;
-    --article-bg: #ffffff;
+    --article-bg: #FFFFFF;
     --article-color-h2: #303030;
-    --article-color-h4: #5f5f5f;
+    --article-color-h4: #5F5F5F;
 }
 
 .dark-mode:root {
     --body-bg: #101010;
-    --body-color: #6D148A;
     --article-bg: #000000;
     --article-color-h2: #CFCFCF;
     --article-color-h4: #909090;
@@ -38,8 +37,13 @@ header {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-evenly;
+}
+
+.tittle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .barra-horizontal {
@@ -55,19 +59,20 @@ button {
     margin-right: 15px;
     background-color: var(--body-color);
     color: var(--article-bg);
-    border: 1px solid var(--body-color);
+    border: 2px solid var(--body-color);
     border-radius: 15px;
     font-size: 0.9em;
+    font-weight: 600;
     padding: 5px;
     transition: 0.2s;
-    
-    &:hover{
+
+    &:hover {
         background-color: var(--article-bg);
         color: var(--body-color);
         transition: 0.2s;
         transform: translateY(-5px);
     }
-    
+
     &:active {
         transform: translateY(5px);
     }
@@ -77,7 +82,8 @@ button {
 * Estilos da Barra de Status Principal
 ============================================================== */
 
-.barra-status, article {
+.barra-status,
+article {
     height: 100px;
     width: 300px;
     background-color: var(--article-bg);
@@ -92,7 +98,8 @@ article h4 {
     color: var(--article-color-h4);
 }
 
-article h2, article h4 {
+article h2,
+article h4 {
     width: 90%;
 }
 
