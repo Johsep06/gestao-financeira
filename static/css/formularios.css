@@ -1,0 +1,9 @@
+#tela-formularios {
+    position: fixed;
+    height: 100vh;
+    width: 80vw;
+    background-color: #000;
+    opacity: 0.8;
+    margin-left: 10vw;
+    z-index: 1;
+}

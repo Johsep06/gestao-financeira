@@ -6,10 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/switch-dm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formularios.css') }}">
     <title>Gestão Financeira</title>
 </head>
 
 <body>
+    <div id="tela-formularios">
+        <div class="container nova-transacao">
+            <form class="form-nova-transacao">
+                <span id="input-categoria">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" name="categoria" id="categoria">
+                </span>
+                <span id="input-valor">
+                    <label for="valor">Valor:</label>
+                    <input type="number" name="valor" id="valor">
+                </span>
+                <span id="input-descricao">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" name="descricao" id="descricao">
+                </span>
+                <span id="input-data">
+                    <label for="data">Data</label>
+                    <input type="date" name="data" id="data">
+                </span>
+                <span id="input-tipo">
+                    <label for="tipo">Tipo</label>
+                    <label for="despesa">Despesa</label>
+                    <input type="radio" name="tipo" id="">
+                    <label for="receiya">Receita</label>
+                    <input type="radio" name="tipo" id="">
+                </span>
+            </form>
+        </div>
+    </div>
     <header>
         <div class="tittle-container">
             <h1>Gestão Financeira Pessoal</h1>
@@ -21,7 +51,7 @@
             </div>
         </div>
         <section>
-            <button> Nova Movimentação </button>
+            <button id="nova-transacao"> Nova Movimentação </button>
             <button> Excluir Movimentação </button>
             <button> Editar Movimentação </button>
         </section>

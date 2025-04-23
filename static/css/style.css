@@ -1,5 +1,5 @@
 :root {
-    --body-bg: #EFEFEF;
+    --body-bg: #E0E0E0;
     --body-color: #6D148A;
     --article-bg: #FFFFFF;
     --article-color-h2: #303030;
@@ -24,6 +24,10 @@ body {
     font-size: 1.1em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--body-color);
+}
+
+.hidden {
+    display: none;
 }
 
 /* ===========================================================
