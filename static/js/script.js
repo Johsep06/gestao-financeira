@@ -31,7 +31,9 @@ function render_container(route, containerID) {
         });
 }
 
-render_container('/controls', 'controls')
+function changePage(page) {
+    window.location.href = page;
+}
 
 // dataAgente1 = [
 //     {value: "{{ Ag1Vit }}", category: "Vitórias"}, 

@@ -26,6 +26,17 @@ body {
     color: var(--body-color);
 }
 
+.container-v {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-h {
+    display: flex;
+    align-items: center;
+}
+
 .hidden {
     display: none;
 }
