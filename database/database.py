@@ -139,3 +139,19 @@ def get_receitas_do_mes(mes:int, ano:int):
                 connection.close()
                 print('Conexão com o db encerrada.')
                 return despesas
+
+def get_todas_transacoes():
+        transacoes = None
+        
+        try:
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                cursor.execute(read.TODAS_AS_TRANSACOES)
+                transacoes = cursor.fetchall()
+        except Exception as e: 
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return transacoes
