@@ -13,10 +13,12 @@ def init_db():
                 cursor = connection.cursor()
                 cursor.execute(create.TABLE)
                 connection.commit()
-                cursor.execute(create.TRASACOES_POR_ANO)
+                cursor.execute(create.FATURA_CARTAO)
                 connection.commit()
-                cursor.execute(create.TRASACOES_POR_MES)
-                connection.commit()
+                # cursor.execute(create.TRASACOES_POR_ANO)
+                # connection.commit()
+                # cursor.execute(create.TRASACOES_POR_MES)
+                # connection.commit()
         except Exception as e:
                 print('Erro ao Criar o db', str(e))
         finally: 
@@ -30,6 +32,8 @@ def add(trasacao:dict):
                 connection = sqlite3.connect(DB_FILE)
                 cursor = connection.cursor()
                 cursor.execute(basic.INSERT, trasacao)
+                connection.commit()
+                print('Transação inserida com sucesso.')
         except Exception as e:
                 print('Erro ao acessar o db', str(e))
         finally: 
@@ -70,4 +74,68 @@ def get_by_id(id:int):
                 print('Conexão com o db encerrada.')
                 return transacao
 
+def get_fatura():
+        valor_fatura = None
+        
+        try:
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                cursor.execute(read.FATURA)
+                valor_fatura = cursor.fetchall()[0]
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return valor_fatura
 
+def get_saldo():
+        saldo = None
+        
+        try:
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                cursor.execute(read.SALDO)
+                saldo = cursor.fetchall()[0]
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return saldo
+
+def get_despesas_do_mes(mes:int, ano:int):
+        despesas = None
+        
+        try:
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                param = {'mes':f'{mes:0>2}', 'ano':f'{ano}'}
+                cursor.execute(read.DESPESAS_DO_MES, param)
+                despesas = cursor.fetchall()
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return despesas
+
+def get_receitas_do_mes(mes:int, ano:int):
+        despesas = None
+        
+        try:
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                param = {'mes':f'{mes:0>2}', 'ano':f'{ano}'}
+                cursor.execute(read.RECEITA_DO_MES, param)
+                despesas = cursor.fetchall()
+        except Exception as e:
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return despesas

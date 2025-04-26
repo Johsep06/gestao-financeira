@@ -51,7 +51,8 @@ class Transacao:
 
         s = f'''
             \rCategoria: {self._categoria}.
-            \rValor: {(self._valor*self.tipo):.2f}
+            \rValor: {(self._valor)}
+            \rTipo: {(self._tipo)}
             \rData: {self._data}.
             \rDescrição: {self._descricao}.
         '''
@@ -59,14 +60,14 @@ class Transacao:
         return s
     
     def to_dict(self) -> dict:
-        d = {}
-        d.setdefault('tipo', self._tipo)
-        d.setdefault('categoria', self._categoria)
-        d.setdefault('valor', self._valor)
-        d.setdefault('data', self._data)
-        d.setdefault('descricao', self._descricao)
+        dado = {}
+        dado.setdefault('tipo', self._tipo)
+        dado.setdefault('categoria', self._categoria)
+        dado.setdefault('valor', self._valor)
+        dado.setdefault('data', self._data)
+        dado.setdefault('descricao', self._descricao)
 
-        return d
+        return dado
 
 if __name__ == '__main__':
     teste:list[Transacao] = []

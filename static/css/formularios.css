@@ -47,20 +47,15 @@ span.container-h {
     outline: 2px solid var(--body-color);
 }
 
-:focus {
-    outline: 0;
-    border-color: #2260ff;
-    box-shadow: 0 0 0 4px #b5c9fc;
-}
 
-#input-tipo div {
+.radio-container div {
     display: flex;
     flex-wrap: wrap;
     margin-top: 5px;
     justify-content: center;
 }
 
-#input-tipo input[type="radio"] {
+/* .radio-container input[type="radio"] {
     clip: rect(0 0 0 0);
     clip-path: inset(100%);
     height: 1px;
@@ -68,9 +63,9 @@ span.container-h {
     position: absolute;
     white-space: nowrap;
     width: 1px;
-}
+} */
 
-#input-tipo input[type="radio"]:checked+span {
+.radio-container input[type="radio"]:checked + span {
     box-shadow: 0 0 0 0.0625em var(--body-color);
     background-color: var(--body-bg);
     z-index: 1;
@@ -78,6 +73,7 @@ span.container-h {
 }
 
 .radio-label span {
+    /* height: 80%; */
     display: block;
     cursor: pointer;
     background-color: #fff;
@@ -85,7 +81,7 @@ span.container-h {
     position: relative;
     margin-left: .0625em;
     box-shadow: 0 0 0 0.0625em #b5bfd9;
-    letter-spacing: .05em;
+    letter-spacing: .04em;
     color: #3e4963;
     text-align: center;
     transition: background-color .5s ease;
@@ -97,4 +93,35 @@ label:first-child span {
 
 label:last-child span {
     border-radius: 0 .375em .375em 0;
+}
+
+.btns-container {
+    margin-top: 15px;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #707070;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--body-color);
+}
+
+.form input[type="submit"] {
+    background-color: var(--body-bg);
+    color: #707070;
+    border-radius: 15px;
+    font-size: 0.9em;
+    border: none;
+    padding: 5px 5px;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: var(--body-color);
+        color: var(--article-bg);
+    }
+
 }

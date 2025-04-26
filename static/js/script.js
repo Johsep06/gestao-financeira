@@ -1,16 +1,10 @@
 const html = document.querySelector('html');
 const checkboxDarkMode = document.querySelector('#dark-mode');
-const novaTransacao = document.querySelector('#nova-transacao');
-const telaFormularios = document.querySelector('#tela-formularios');
 
 checkboxDarkMode.checked = false;
 
 checkboxDarkMode.addEventListener('change', () => {
     html.classList.toggle('dark-mode')
-})
-
-novaTransacao.addEventListener('click', () => {
-    telaFormularios.classList.toggle('hidden')
 })
 
 function render_container(route, containerID) {

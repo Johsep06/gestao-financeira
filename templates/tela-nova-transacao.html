@@ -23,7 +23,7 @@
         </div>
     </header>
     <main class="container-v tela-nova-transacao">
-        <form class="form-nova-transacao form">
+        <form class="form" id="form-nova-transacao">
             <span class="container-v" id="input-categoria">
                 <label for="categoria">
                     Categoria:
@@ -35,7 +35,7 @@
                 <label for="valor">
                     Valor:
                 </label>
-                <input type="number" name="valor" id="valor">
+                <input type="text" name="valor" id="valor">
             </span>
             <br>
             <span class="container-v" id="input-descricao">
@@ -56,19 +56,17 @@
                 <label for="tipo">
                     Tipo:
                 </label>
-                <div>
-                    <label for="despesa" class="radio-label">
-                        <input type="radio" name="tipo" id="">
-                        <span>
-                            Despesa
-                        </span>
-                    </label>
-                    <label for="receita" class="radio-label">
-                        <input type="radio" name="tipo" id="">
-                        <span>
-                            Receita
-                        </span>
-                    </label>
+                <div class="radio-container">
+                    <div>
+                        <label for="despesa" class="radio-label">
+                            <input type="radio" name="tipo" value="-1">
+                            <span> Despesa </span>
+                        </label>
+                        <label for="receita" class="radio-label">
+                            <input type="radio" name="tipo" value="1">
+                            <span> Receita </span>
+                        </label>
+                    </div>
                 </div>
             </span>
             <div class='container-h btns-container'>
@@ -79,6 +77,6 @@
     </main>
 </body>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-<script src="{{ url_for('static', filename='js/config.js') }}"></script>
+<script src="{{ url_for('static', filename='js/nova-transacao.js') }}"></script>
 
 </html>

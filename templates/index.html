@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/switch-dm.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/formularios.css') }}">
     <title>Gestão Financeira</title>
 </head>
 
@@ -29,20 +28,20 @@
     </header>
     <section class="barra-horizontal" id="barra-status">
         <article class="card">
-            <h4>Saldo</h4>
-            <h2>R$ 2.000,00</h2>
+            <h4>Saldo Geral</h4>
+            <h2>R$ {{ saldo }}</h2>
         </article>
         <article class="card">
-            <h4>Receitas</h4>
-            <h2>R$ 2.000,00</h2>
+            <h4>Receita Atual</h4>
+            <h2>R$ {{ receitas_do_mes }}</h2>
         </article>
         <article class="card">
-            <h4>Despesas</h4>
-            <h2>R$ 2.000,00</h2>
+            <h4>Despesa Atual</h4>
+            <h2>R$ {{ despesas_do_mes }}</h2>
         </article>
         <article class="card">
-            <h4>Fatura</h4>
-            <h2>R$ 2.000,00</h2>
+            <h4>Fatura Geral</h4>
+            <h2>R$ {{ fatura }}</h2>
         </article>
     </section>
 </body>
