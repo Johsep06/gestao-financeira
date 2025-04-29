@@ -107,14 +107,20 @@ def get_saldo():
                 return saldo
 
 def get_despesas_do_mes(mes:int, ano:int):
-        despesas = None
+        despesas = []
         
         try:
                 connection = sqlite3.connect(DB_FILE)
                 cursor = connection.cursor()
                 param = {'mes':f'{mes:0>2}', 'ano':f'{ano}'}
                 cursor.execute(read.DESPESAS_DO_MES, param)
-                despesas = cursor.fetchall()
+                dados = cursor.fetchall()
+                for dado in dados:
+                        despesas.append({
+                                'valor': round(dado[0], 2),
+                                'mes': dado[1],
+                                'ano': dado[2]
+                        })
         except Exception as e:
                 print('Erro ao acessar o db', str(e))
         finally:
@@ -124,30 +130,46 @@ def get_despesas_do_mes(mes:int, ano:int):
                 return despesas
 
 def get_receitas_do_mes(mes:int, ano:int):
-        despesas = None
+        receitas = []
         
         try:
                 connection = sqlite3.connect(DB_FILE)
                 cursor = connection.cursor()
                 param = {'mes':f'{mes:0>2}', 'ano':f'{ano}'}
                 cursor.execute(read.RECEITA_DO_MES, param)
-                despesas = cursor.fetchall()
+                dados = cursor.fetchall()
+                for dado in dados:
+                        receitas.append({
+                                'valor': round(dado[0], 2),
+                                'mes': dado[1],
+                                'ano': dado[2]
+                        })
         except Exception as e:
                 print('Erro ao acessar o db', str(e))
         finally:
                 cursor.close()
                 connection.close()
                 print('Conexão com o db encerrada.')
-                return despesas
+                return receitas
 
 def get_todas_transacoes():
-        transacoes = None
+        transacoes = []
         
         try:
                 connection = sqlite3.connect(DB_FILE)
                 cursor = connection.cursor()
                 cursor.execute(read.TODAS_AS_TRANSACOES)
-                transacoes = cursor.fetchall()
+
+                dados = cursor.fetchall()
+                for dado in dados:
+                        transacoes.append({
+                                'id': dado[0],
+                                'tipo': dado[1],
+                                'categoria': dado[2],
+                                'valor': round(dado[3], 2),
+                                'data': dado[4],
+                                'descricao': dado[5]
+                        })
         except Exception as e: 
                 print('Erro ao acessar o db', str(e))
         finally:
@@ -155,3 +177,20 @@ def get_todas_transacoes():
                 connection.close()
                 print('Conexão com o db encerrada.')
                 return transacoes
+
+def get_categorias():
+        categorias = None
+        
+        try:
+                connection = sqlite3.connect(DB_FILE)
+                cursor = connection.cursor()
+                cursor.execute(read.CATEGORIAS)
+                dados = cursor.fetchall()
+                categorias = [dado[0] for dado in dados]
+        except Exception as e: 
+                print('Erro ao acessar o db', str(e))
+        finally:
+                cursor.close()
+                connection.close()
+                print('Conexão com o db encerrada.')
+                return categorias
