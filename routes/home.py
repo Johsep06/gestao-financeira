@@ -13,12 +13,20 @@ def home():
     receitas_do_mes = database.get_receitas_do_mes(hoje.month, hoje.year)
     
     if despesas_do_mes:
-        despesas_do_mes = despesas_do_mes[0][0]
+        # despesas_do_mes = sum(despesas_do_mes, key=lambda x: x['valor'])
+        valor = 0.0
+        for despesa in despesas_do_mes:
+            valor += despesa['valor']
+        despesas_do_mes = valor
     else:
         despesas_do_mes = 0.0
         
     if receitas_do_mes:
-        receitas_do_mes = receitas_do_mes[0][0]
+        # receitas_do_mes = sum(receitas_do_mes, key=lambda x: x['valor'])
+        valor = 0.0
+        for receita in receitas_do_mes:
+            valor += receita['valor']
+        receitas_do_mes = valor
     else:
         receitas_do_mes = 0.0
         

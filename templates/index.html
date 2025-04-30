@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/switch-dm.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/charts.css') }}">
     <title>Gestão Financeira</title>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 </head>
 
 <body>
@@ -44,8 +48,36 @@
             <h2>R$ {{ fatura }}</h2>
         </article>
     </section>
+    <section class="barra-horizontal line-1">
+        <article class="card chart-card">
+            <h4>Percentual de Despesas Atual</h4>
+            <div class="pie-chart" id="percentual-despesas"></div>
+        </article>
+    </section>
 </body>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pie-chart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chart-render.js') }}"></script>
+<script>
+    // am5.ready(createChart("percentual-despesas", dados));
+    /*carregarPercentualDespesas.then(despesas => {
+        am5.ready(createChart("percentual-despesas", despesas));
+    });*/
+
+    /*setTimeout()
+    setTimeout(() => {
+        am5.ready(createChart("percentual-despesas", ));
+    }, 1000);*/
+
+    async function loadPieChart() {
+        const dados = await carregarPercentualDespesas('/data/percental/despesas/2025-04');
+
+        am5.ready(createChart("percentual-despesas", dados));
+    }
+
+    loadPieChart();
+
+</script>
 
 </html>

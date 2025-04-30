@@ -1,0 +1,14 @@
+section.line-1 {
+    height: 200px;
+}
+
+.chart-card {
+    justify-content: space-around;
+    height: 95%;
+    text-align: center;
+}
+
+.pie-chart {
+    height: 70%;
+    width: 100%;
+}
