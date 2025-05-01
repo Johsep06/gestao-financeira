@@ -7,9 +7,6 @@
 //     {value: "{{ ag2Qtd - Ag2Vit }}", category: "Derrotas"}
 // ];
 
-// am5.ready(createChart("chartdiv", dataAgente1));
-// am5.ready(createChart("chartdiv2", dataAgente2));
-
 dados = [
     { value: "23.3", category: "Receitas" },
     { value: "52.2", category: "tiro" },
@@ -17,7 +14,7 @@ dados = [
     { value: "12.2", category: "bomba" },
 ];
 
-async function carregarPercentualDespesas(route) {
+async function pegarDadosGraficos(route) {
     try {
         const response = await fetch(route);
         const dados = await response.json();
@@ -32,5 +29,25 @@ async function carregarPercentualDespesas(route) {
         return [];
     }
 }
-// setInterval(carregarPercentualDespesas, 200)
-// setTimeout(carregarPercentualDespesas, 200)
+
+function getCurrentYearMonth() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // +1 porque janeiro é 0
+    return `${year}-${month}`;
+}
+
+async function loadPieChart() {
+    data = getCurrentYearMonth();
+    rotaDespesas = `/data/percental/despesas/${data}`;
+    const percentualDespesasPorMes = await pegarDadosGraficos(rotaDespesas);
+
+    am5.ready(createChart("percentual-despesas", percentualDespesasPorMes));
+}
+async function loadPieChart2() {
+    data = getCurrentYearMonth();
+    rotaReceitas = `/data/percental/receitas/${data}`;
+    const percentualReceitasPorMes = await pegarDadosGraficos(rotaReceitas);
+
+    am5.ready(createChart("percentual-receitas", percentualReceitasPorMes));
+}

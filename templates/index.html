@@ -50,6 +50,10 @@
     </section>
     <section class="barra-horizontal line-1">
         <article class="card chart-card">
+            <h4>Percentual de Receitas Atual</h4>
+            <div class="pie-chart" id="percentual-receitas"></div>
+        </article>
+        <article class="card chart-card">
             <h4>Percentual de Despesas Atual</h4>
             <div class="pie-chart" id="percentual-despesas"></div>
         </article>
@@ -60,24 +64,8 @@
 <script src="{{ url_for('static', filename='js/pie-chart.js') }}"></script>
 <script src="{{ url_for('static', filename='js/chart-render.js') }}"></script>
 <script>
-    // am5.ready(createChart("percentual-despesas", dados));
-    /*carregarPercentualDespesas.then(despesas => {
-        am5.ready(createChart("percentual-despesas", despesas));
-    });*/
-
-    /*setTimeout()
-    setTimeout(() => {
-        am5.ready(createChart("percentual-despesas", ));
-    }, 1000);*/
-
-    async function loadPieChart() {
-        const dados = await carregarPercentualDespesas('/data/percental/despesas/2025-04');
-
-        am5.ready(createChart("percentual-despesas", dados));
-    }
-
     loadPieChart();
-
+    loadPieChart2();
 </script>
 
 </html>
