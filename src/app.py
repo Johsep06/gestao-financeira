@@ -55,7 +55,7 @@ def historico_receitas_do_mes(ano:int, mes:int) -> dict[str, float]:
     for transacao in transacoes:
         data = transacao['data']
         valor = transacao['valor']
-        historico_receitas_do_mes[data] += round(valor, 2)
+        historico_receitas_do_mes[data] += valor
         
     return historico_receitas_do_mes
 

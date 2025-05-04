@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/charts.css') }}">
     <title>Gestão Financeira</title>
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 </head>
@@ -51,21 +52,32 @@
     <section class="barra-horizontal line-1">
         <article class="card chart-card">
             <h4>Percentual de Receitas Atual</h4>
-            <div class="pie-chart" id="percentual-receitas"></div>
+            <div class="small-chart" id="percentual-receitas"></div>
+        </article>
+        <article class="card chart-card">
+            <h4>Histórico de Receita</h4>
+            <div class="small-chart" id="historico-receitas-mes"></div>
         </article>
         <article class="card chart-card">
             <h4>Percentual de Despesas Atual</h4>
-            <div class="pie-chart" id="percentual-despesas"></div>
+            <div class="small-chart" id="percentual-despesas"></div>
+        </article>
+        <article class="card chart-card">
+            <h4>Histórico de Despesas</h4>
+            <div class="small-chart" id="historico-despesas-mes"></div>
         </article>
     </section>
 </body>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 <script src="{{ url_for('static', filename='js/config.js') }}"></script>
 <script src="{{ url_for('static', filename='js/pie-chart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/line-chart.js') }}"></script>
 <script src="{{ url_for('static', filename='js/chart-render.js') }}"></script>
 <script>
-    loadPieChart();
-    loadPieChart2();
+    loadPercentualDespesasMes();
+    loadPercentualReceitasMes();
+    loadHistoricoReceitasMes();
+    loadHistoricoDespesasMes();
 </script>
 
 </html>
