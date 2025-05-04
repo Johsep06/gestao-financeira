@@ -32,3 +32,27 @@ def percentual_de_receitas(ano:int, mes:int):
     """
     
     return jsonify(app.percentual_de_receita_do_mes(ano, mes))
+
+@data_route.route('/historico/despesas/<int:ano>-<int:mes>')
+def historico_despesas(ano:int, mes:int):
+    """
+    Retorna o histórico de despesas para um determinado mês e ano.
+    
+    :param ano: Ano para o qual buscar o histórico de despesas.
+    :param mes: Mês para o qual buscar o histórico de despesas.
+    :return: Histórico de despesas para o mês e ano especificados.
+    """
+    
+    return jsonify(app.historico_despesas_do_mes(ano, mes))
+
+@data_route.route('/historico/receitas/<int:ano>-<int:mes>')
+def historico_receitas(ano:int, mes:int):
+    """
+    Retorna o histórico de receitas para um determinado mês e ano.
+    
+    :param ano: Ano para o qual buscar o histórico de receitas.
+    :param mes: Mês para o qual buscar o histórico de receitas.
+    :return: Histórico de receitas para o mês e ano especificados.
+    """
+    
+    return jsonify(app.historico_receitas_do_mes(ano, mes))
