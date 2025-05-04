@@ -38,6 +38,27 @@ def historico_despesas_do_mes(ano:int, mes:int) -> dict[str, float]:
     
     return historico_despesas_do_mes
 
+def historico_receitas_do_mes(ano:int, mes:int) -> dict[str, float]:
+    '''
+    retorna o historico de receitas para um determinado mês e ano
+
+    :param ano: Ano para o qual buscar as receitas.
+    :param mes: Mês para o qual buscar as receitas.
+    :return: Histórico de receitas para o mês e ano especificados.
+    '''
+    transacoes = transacoes_filtradas_por_data_e_tipo(ano, mes, 1)
+    
+    datas = [x['data'] for x in transacoes]
+    datas = list(set(datas))
+    datas.sort()
+    historico_receitas_do_mes = { data:0 for data in datas }
+    for transacao in transacoes:
+        data = transacao['data']
+        valor = transacao['valor']
+        historico_receitas_do_mes[data] += round(valor, 2)
+        
+    return historico_receitas_do_mes
+
 def percentual_de_despesas_do_mes(ano:int, mes:int) -> dict[str, float]:
     '''
     Calcula a média de despesas para um determinado mês e ano
